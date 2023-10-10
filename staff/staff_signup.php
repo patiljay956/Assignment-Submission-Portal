@@ -48,22 +48,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <!doctype html>
 <html lang="en">
 
-<head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-
-    <title>Staff Signup</title>
-</head>
+<?php
+include "../partials/head.php"
+?>
 
 <body>
     <!-- nav bar  -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
-            <a class="navbar-brand" href="/project/home.php">Assignment Submission Portal</a>
+            <a class="navbar-brand" href="../home.php">Assignment Submission Portal</a>
 
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -73,14 +66,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="/project/home.php">Home</a>
+                        <a class="nav-link" aria-current="page" href="../home.php">Home</a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="/project/staff/staff_login.php">Staff Login</a>
+                        <a class="nav-link" href="./staff_login.php">Staff Login</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active " href="/project/staff/staff_signup.php"> Staff Signup</a>
+                        <a class="nav-link active " href="./staff_signup.php"> Staff Signup</a>
                     </li>
 
                     </li>
@@ -110,24 +103,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
           </div>';
     }
     ?>
-    <header class="masthead mt-1 ">
-        <div class="container px-4 px-lg-5 h-100 ">
-            <div class="row gx-4 gx-lg-5 h-100 align-items-center justify-content-center text-center">
-                <div class="col-lg-8 align-self-end">
-                    <h1 class="text-dark font-weight-bold mt-1 ">Government Polytechnic Vikramgad</h1>
-                </div>
-                <figcaption class="blockquote-footer text-end text-dark">
-                    The Collage is yours...</cite>
-                </figcaption>
-            </div>
-        </div>
-    </header>
+
+    <?php
+    include "../partials/head.php"
+    ?>
     <!-- SIGN UP CONTENT  -->
     <div class="container">
         <h2 class="text-center mt-1 ">Sign Up To Our Website</h2>
     </div>
     <!--main form  -->
-    <form action="/project/staff/staff_signup.php" method="POST">
+    <form action="./staff_signup.php" method="POST">
 
         <div class="form-group  m-4">
             <label for="name" class="form-label">Name</label>

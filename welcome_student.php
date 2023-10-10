@@ -37,22 +37,16 @@ if (isset($_POST['submit'])) {
 <!doctype html>
 <html lang="en">
 
-<head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-
-    <title>Welcome! Student</title>
-</head>
+<?php
+include "partials/head.php"
+?>
 
 <body>
+    <title>Welcome! Student</title>
     <!-- Nav Bar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
-            <a class="navbar-brand" href="/project/home.php">Assignment Submission Portal</a>
+            <a class="navbar-brand" href="./home.php">Assignment Submission Portal</a>
 
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -62,11 +56,11 @@ if (isset($_POST['submit'])) {
 
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" href="/project/login.php">Login</a>
+                        <a class="nav-link active" href="./login.php">Login</a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="/project/logout.php">Logout</a>
+                        <a class="nav-link" href="./logout.php">Logout</a>
                     </li>
 
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -105,18 +99,9 @@ if (isset($_POST['submit'])) {
     }
     ?>
 
-    <header class="masthead mt-1">
-        <div class="container px-4 px-lg-5 h-100">
-            <div class="row gx-4 gx-lg-5 h-100 align-items-center justify-content-center text-center">
-                <div class="col-lg-8 align-self-end">
-                    <h1 class="text-dark font-weight-bold mt-1">Government Polytechnic Vikramgad</h1>
-                </div>
-                <figcaption class="blockquote-footer text-end text-dark">
-                    The Collage is yours...</cite>
-                </figcaption>
-            </div>
-        </div>
-    </header>
+    <?php
+    include "partials/header.php"
+    ?>
     <!-- content -->
 
     <figure class="text-center m-4">
@@ -131,7 +116,7 @@ if (isset($_POST['submit'])) {
     </figure>
 
 
-    <form action="/project/welcome_student.php" method="POST" enctype="multipart/form-data">
+    <form action="./welcome_student.php" method="POST" enctype="multipart/form-data">
         <div class="container mt-5">
             <div class="mb-3">
                 <label for="formFileMultiple" class="form-label">
