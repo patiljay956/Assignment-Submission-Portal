@@ -86,7 +86,7 @@ include "../partials/head.php"
             </thead>
             <tbody>
                 <?php
-                include "_dbconnect.php";
+                include "../partials/_dbconnect.php";
                 $is_empty = false;
 
                 $sql = "Select * from students";

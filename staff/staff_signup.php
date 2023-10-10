@@ -7,7 +7,7 @@ $showError =  false;
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     //  connecting to the server
-    include "_dbconnect.php";
+    include "../partials/_dbconnect.php";
 
     $name = $_POST["name"];
     $id = $_POST["id"];
