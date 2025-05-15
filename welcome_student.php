@@ -41,93 +41,71 @@ if (isset($_POST['submit'])) {
 include "partials/head.php"
 ?>
 
-<body>
+<body style="background: #f8fafc;">
     <title>Welcome! Student</title>
     <!-- Nav Bar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm">
         <div class="container-fluid">
-            <a class="navbar-brand" href="./home.php">Assignment Submission Portal</a>
-
+            <a class="navbar-brand fw-bold" href="./home.php">Assignment Submission Portal</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" href="./login.php">Login</a>
+                        <a class="nav-link" href="./login.php">Login</a>
                     </li>
-
                     <li class="nav-item">
                         <a class="nav-link" href="./logout.php">Logout</a>
-                    </li>
-
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="#">Action</a></li>
-                        <li><a class="dropdown-item" href="#">Another action</a></li>
-                        <li>
-                            <hr class="dropdown-divider">
-                        </li>
-                        <li><a class="dropdown-item" href="#">Something else here</a></li>
-                    </ul>
-                    </li>
-
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <?php
-    if ($success) {
-        echo '<div class="alert alert-success alert-dismissible fade show" role="alert">
-       <strong>Success!</strong> Your File Has been Uploaded Successfully
-       <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>';
-    }
-    ?>
-
-    <!-- ERROR MESSAGE  -->
-
-    <?php
-    if ($showError) {
-        echo '<div class="alert alert-danger alert-dismissible fade show" role="alert">
-         <strong>Opps...</strong> ' . $showError . '
-         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-          </div>';
-    }
-    ?>
-
-    <?php
-    include "partials/header.php"
-    ?>
-    <!-- content -->
-
-    <figure class="text-center m-4">
-        <blockquote class="blockquote">
-            <h3>
-                <p>Welcome Student </p>
-            </h3>
-        </blockquote>
-        <figcaption class="blockquote-footer">
-            Submit kar le fata fat... <cite title="Source Title">Marks le le zhata zat </cite>
-        </figcaption>
-    </figure>
-
-
-    <form action="./welcome_student.php" method="POST" enctype="multipart/form-data">
-        <div class="container mt-5">
-            <div class="mb-3">
-                <label for="formFileMultiple" class="form-label">
-                    <h4>Upload your assinment</h4>
-                </label>
-                <input class="form-control" type="file" id="formFileMultiple" name="u_file">
+    <?php if ($success): ?>
+        <div class="container mt-4">
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                <strong>Success!</strong> Your file has been uploaded successfully.
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
-            <button type="submit" class="btn btn-primary mt-2 m-4" name="submit">Submit</button>
         </div>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <?php endif; ?>
 
+    <?php if ($showError): ?>
+        <div class="container mt-4">
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                <strong>Oops...</strong> <?= $showError ?>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        </div>
+    <?php endif; ?>
+
+    <?php include "partials/header.php" ?>
+
+    <div class="container d-flex flex-column align-items-center justify-content-center" style="min-height: 80vh;">
+        <div class="card shadow-lg p-4" style="max-width: 450px; width: 100%; border-radius: 18px;">
+            <div class="text-center mb-4">
+                <img src="https://img.icons8.com/fluency/96/000000/student-male.png" alt="Student" width="80" height="80"/>
+                <h3 class="mt-2 mb-0">Welcome Student</h3>
+                <small class="text-muted">Submit kar le fata fat... <cite title="Source Title">Marks le le zhata zat</cite></small>
+            </div>
+            <form action="./welcome_student.php" method="POST" enctype="multipart/form-data">
+                <div class="mb-3">
+                    <label for="formFileMultiple" class="form-label fw-semibold">
+                        Upload your assignment
+                    </label>
+                    <input class="form-control" type="file" id="formFileMultiple" name="u_file" required>
+                </div>
+                <button type="submit" class="btn btn-primary w-100 mt-2" name="submit">
+                    <i class="bi bi-upload"></i> Submit
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+    <!-- Bootstrap Icons CDN for upload icon -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 </body>
-
 </html>

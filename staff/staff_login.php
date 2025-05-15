@@ -35,12 +35,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 include "../partials/head.php"
 ?>
 
-<body>
+<body style="background: linear-gradient(135deg, #e0eafc 0%, #cfdef3 100%); min-height:100vh;">
   <title>welcome ! Professor</title>
   <!-- nav bar -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm">
     <div class="container-fluid">
-      <a class="navbar-brand" href="../home.php">Assignment Submission Portal</a>
+      <a class="navbar-brand fw-bold" href="../home.php">Assignment Submission Portal</a>
 
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -66,7 +66,7 @@ include "../partials/head.php"
 
   <?php
   if ($login) {
-    echo '<div class="alert alert-success alert-dismissible fade show" role="alert">
+    echo '<div class="alert alert-success alert-dismissible fade show mt-3 container" role="alert">
        <strong>Success!</strong> You are Logged successfully.
        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>';
@@ -77,7 +77,7 @@ include "../partials/head.php"
 
   <?php
   if ($showError) {
-    echo '<div class="alert alert-danger alert-dismissible fade show" role="alert">
+    echo '<div class="alert alert-danger alert-dismissible fade show mt-3 container" role="alert">
         <strong>Opps...</strong> ' . $showError . '
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
          </div>';
@@ -87,25 +87,29 @@ include "../partials/head.php"
   <?php
   include "../partials/header.php"
   ?>
-  <div class="container">
-    <h2 class="text-center mt-1 "> LOGIN TO OUR SYSTEM</h2>
-  </div>
+  <div class="container d-flex flex-column align-items-center justify-content-center" style="min-height: 70vh;">
+    <div class="card shadow-lg p-4" style="max-width: 400px; width: 100%; border-radius: 18px; background: #fff;">
+      <h2 class="text-center mb-4 text-primary fw-bold">Staff Login</h2>
+      <form action="./staff_login.php" method="POST">
+        <div class="form-group mb-3">
+          <label for="staffId" class="form-label fw-semibold">Staff ID</label>
+          <input type="text" class="form-control rounded-pill px-3" id="staffId" name="id" placeholder="Enter Your Staff ID" required>
+        </div>
 
-  <form action="./staff_login.php" method="POST">
-    <div class="form-group  m-4">
-      <label for="enroll" class="form-label">Staff ID</label>
-      <input type="text" class="form-control" id="staffId" name="id" placeholder="Enter Your Staff id " required>
-    </div>
+        <div class="form-group mb-3">
+          <label for="passs" class="form-label fw-semibold">Password</label>
+          <input type="password" class="form-control rounded-pill px-3" id="passs" name="pass" placeholder="Password" required>
+          <div id="emailHelp" class="form-text text-muted">Do not share your password.</div>
+        </div>
 
-    <div class="form-group  m-4">
-      <label for="password" class="form-label">Password</label>
-      <input type="password" class="form-control" id="passs" name="pass" placeholder="password" required>
-      <div id="emailHelp" class="form-text">Do not Share Your Password..
+        <button type="submit" class="btn btn-primary w-100 rounded-pill fw-bold">Login</button>
+      </form>
+      <div class="mt-3 text-center">
+        <span class="text-muted">Don't have an account?</span>
+        <a href="./staff_signup.php" class="text-decoration-none text-primary fw-semibold">Sign Up</a>
       </div>
     </div>
-
-    <button type="submit" class="btn btn-dark m-4">Submit</button>
-  </form>
+  </div>
 
   <!-- Option 1: Bootstrap Bundle with Popper -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
